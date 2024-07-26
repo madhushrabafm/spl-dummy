@@ -97,7 +97,7 @@ const Teams = () => {
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">{team.status}</td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <button className="text-blue-600 hover:text-blue-900">
+                  <button className="text-pink-600 hover:text-pink-900">
                     Edit
                   </button>
                   <button className="ml-4 text-red-600 hover:text-red-900">

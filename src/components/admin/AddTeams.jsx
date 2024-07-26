@@ -42,7 +42,7 @@ const AddTeams = () => {
                 name="teamName"
                 value={formData.teamName}
                 onChange={handleChange}
-                className="mt-1 block w-full border rounded-md p-2 my-3 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                className="mt-1 block w-full border rounded-md p-2 my-3 shadow-sm focus:border-pink-700 focus:ring focus:ring-pink-700 focus:ring-opacity-50"
                 required
               />
             </div>
@@ -55,7 +55,7 @@ const AddTeams = () => {
                 name="organizationName"
                 value={formData.organizationName}
                 onChange={handleChange}
-                className="mt-1 block w-full border rounded-md p-2 my-3 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                className="mt-1 block w-full border rounded-md p-2 my-3 shadow-sm focus:border-pink-700 focus:ring focus:ring-pink-700 focus:ring-opacity-50"
                 required
               />
             </div>
@@ -68,7 +68,7 @@ const AddTeams = () => {
                 name="leagueName"
                 value={formData.leagueName}
                 onChange={handleChange}
-                className="mt-1 block w-full border rounded-md p-2 my-3 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                className="mt-1 block w-full border rounded-md p-2 my-3 shadow-sm focus:border-pink-700 focus:ring focus:ring-pink-700 focus:ring-opacity-50"
                 required
               />
             </div>
@@ -81,7 +81,7 @@ const AddTeams = () => {
                 name="coachName"
                 value={formData.coachName}
                 onChange={handleChange}
-                className="mt-1 block w-full border rounded-md p-2 my-3 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                className="mt-1 block w-full border rounded-md p-2 my-3 shadow-sm focus:border-pink-700 focus:ring focus:ring-pink-700 focus:ring-opacity-50"
                 required
               />
             </div>
@@ -94,7 +94,7 @@ const AddTeams = () => {
                 name="players"
                 value={formData.players}
                 onChange={handleChange}
-                className="mt-1 block w-full border rounded-md p-2 my-3 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                className="mt-1 block w-full border rounded-md p-2 my-3 shadow-sm focus:border-pink-700 focus:ring focus:ring-pink-700 focus:ring-opacity-50"
                 required
               />
             </div>
@@ -106,7 +106,7 @@ const AddTeams = () => {
                 name="status"
                 value={formData.status}
                 onChange={handleChange}
-                className="mt-1 block w-full border rounded-md p-2 my-3 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                className="mt-1 block w-full border rounded-md p-2 my-3 shadow-sm focus:border-pink-700 focus:ring focus:ring-pink-700 focus:ring-opacity-50"
                 required
               >
                 <option value="">Select status</option>
@@ -117,7 +117,7 @@ const AddTeams = () => {
           </div>
           <button
             type="submit"
-            className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+            className="bg-pink-700 text-white px-4 py-2 rounded-md hover:bg-pink-600"
           >
             Submit
           </button>

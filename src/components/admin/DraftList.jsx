@@ -93,7 +93,7 @@ const DraftList = () => {
                 <td className="px-6 py-4 whitespace-nowrap">
                   <a
                     href={draft.meeting_link}
-                    className="text-blue-600 hover:text-blue-900"
+                    className="text-pink-600 hover:text-pink-900"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -103,7 +103,7 @@ const DraftList = () => {
                 <td className="px-6 py-4 whitespace-nowrap">{draft.date}</td>
                 <td className="px-6 py-4 whitespace-nowrap">{draft.time}</td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <button className="text-blue-600 hover:text-blue-900">
+                  <button className="text-pink-600 hover:text-pink-900">
                     Edit
                   </button>
                   <button className="ml-4 text-red-600 hover:text-red-900">
