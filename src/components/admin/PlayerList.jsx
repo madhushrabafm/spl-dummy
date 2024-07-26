@@ -97,7 +97,7 @@ const PlayerList = () => {
                   {player.full_name}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  {player.team_id.team_name}
+                  {player.team_id?.team_name || "-"}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   {player.league_id.league_name}
@@ -105,7 +105,7 @@ const PlayerList = () => {
                 <td className="px-6 py-4 whitespace-nowrap">{player.email}</td>
                 <td className="px-6 py-4 whitespace-nowrap">{player.status}</td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  {player.coach_id.full_name}
+                  {player.coach_id?.full_name || "-"}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <button className="text-blue-600 hover:text-blue-900">
