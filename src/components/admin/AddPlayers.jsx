@@ -118,7 +118,7 @@ const AddPlayer = () => {
   };
 
   return (
-    <div className="w-full p-6">
+    <div className="w-full ">
       <h1 className="text-2xl font-bold mb-4">
         <Header
           heading="Add Player"
@@ -145,7 +145,7 @@ const AddPlayer = () => {
                   name="leagueId"
                   value={formData.leagueId}
                   onChange={handleChange}
-                  className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                  className="mt-1 block w-full p-2 border rounded shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
                   required
                 >
                   <option value="">Select a league</option>
@@ -165,7 +165,7 @@ const AddPlayer = () => {
                   type="file"
                   accept=".xls,.xlsx"
                   onChange={handleFileChange}
-                  className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                  className="mt-1 block w-full border p-2 rounded shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
                   required
                 />
               </div>
