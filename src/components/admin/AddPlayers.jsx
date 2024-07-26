@@ -34,7 +34,7 @@ const AddPlayer = () => {
         }
 
         const data = await response.json();
-        console.log(data?.data?.results, "<<<<<<<<<<<,");
+        // console.log(data?.data?.results, "<<<<<<<<<<<,");
 
         if (data.isSuccess && Array.isArray(data.data?.results)) {
           setLeagues(data.data?.results);
@@ -117,6 +117,8 @@ const AddPlayer = () => {
     }
   };
 
+  console.log(leagues);
+
   return (
     <div className="w-full ">
       <h1 className="text-2xl font-bold mb-4">
@@ -151,8 +153,7 @@ const AddPlayer = () => {
                   <option value="">Select a league</option>
                   {leagues.map((league) => (
                     <option key={league.id} value={league.id}>
-                      {league.league_name}
-                      mkedn
+                      {league?.full_name}
                     </option>
                   ))}
                 </select>
