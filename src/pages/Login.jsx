@@ -11,23 +11,24 @@ const Login = () => {
     e.preventDefault();
 
     console.log("Email:", email);
-    console.log("Password:", password);
+    // console.log("Password:", mockResponse.data);
 
     try {
       const mockResponse = await mockAuth(email, password);
+      console.log("?>>>>>>>>:", mockResponse.data);
 
       if (mockResponse.accessToken) {
         localStorage.setItem("accessToken", mockResponse.accessToken);
       }
       if (mockResponse.data.id) {
-        localStorage.setItem("adminid", mockResponse.data.id);
+        localStorage.setItem("adminid", mockResponse?.data?.id);
       }
       if (mockResponse.data.role) {
         localStorage.setItem("role", mockResponse.data.role);
       }
 
       if (mockResponse.data.role === "coach") {
-        navigate("/coach/drafts/live"); // Redirect to coach-specific route
+        navigate("/coach"); // Redirect to coach-specific route
       } else if (mockResponse.data.role === "admin") {
         navigate("/admin/team"); // Redirect to admin-specific route
       } else {

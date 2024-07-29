@@ -20,10 +20,13 @@ const AdminLive = () => {
 
     socket.emit("join_draft_room", {
       draftId: id,
-      //   coachId: JSON.parse(localStorage.getItem("adminid")),
+      // coachId: JSON.parse(localStorage.getItem("adminid")),
     });
     console.log(">>>>--------join_draft_room------>>>>>", socket.id);
 
+    socket.on("draft_data", (data) => {
+      console.log("org draft_data -----", data);
+    });
     socket.on("disconnect", () => {
       console.log("Disconnected from server with ID: " + socket.id);
     });
