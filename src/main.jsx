@@ -16,7 +16,9 @@ import Login from "./pages/Login";
 import AddDrafts from "./components/admin/AddDrafts";
 import LeagueList from "./components/admin/LeagueList";
 import AddLeague from "./components/admin/AddLeague";
-import Live from "./pages/Live";
+// import Live from "./pages/Live";
+import AdminLive from "./pages/AdminLive";
+import CoachLive from "./pages/CoachLive";
 
 const router = createBrowserRouter([
   {
@@ -29,7 +31,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "drafts/live/:id",
-        element: <Live />,
+        element: <CoachLive />,
       },
     ],
   },
@@ -80,7 +82,7 @@ const router = createBrowserRouter([
       },
       {
         path: "drafts/live/:id",
-        element: <Live />,
+        element: <AdminLive />,
       },
     ],
   },
