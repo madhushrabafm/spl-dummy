@@ -19,6 +19,7 @@ import AddLeague from "./components/admin/AddLeague";
 // import Live from "./pages/Live";
 import AdminLive from "./pages/AdminLive";
 import CoachLive from "./pages/CoachLive";
+import ProtectedRoute from "./pages/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +28,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/coach",
-    element: <Coach />,
+    element: (
+      <ProtectedRoute allowedRoles={["coach"]}>
+        <Coach />
+      </ProtectedRoute>
+    ),
     children: [
       {
         path: "drafts/live/:id",
@@ -37,7 +42,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/admin",
-    element: <Admin />,
+    element: (
+      <ProtectedRoute allowedRoles={["admin"]}>
+        <Admin />
+      </ProtectedRoute>
+    ),
     children: [
       {
         path: "team",

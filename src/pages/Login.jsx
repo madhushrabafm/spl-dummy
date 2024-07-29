@@ -14,23 +14,22 @@ const Login = () => {
     console.log("Password:", password);
 
     try {
-      // Call the mock authentication function
       const mockResponse = await mockAuth(email, password);
 
-      console.log(mockResponse, "/////////////");
-
-      // Store the access token in localStorage
       if (mockResponse.accessToken) {
         localStorage.setItem("accessToken", mockResponse.accessToken);
       }
       if (mockResponse.data.id) {
         localStorage.setItem("adminid", mockResponse.data.id);
       }
+      if (mockResponse.data.role) {
+        localStorage.setItem("role", mockResponse.data.role);
+      }
 
       if (mockResponse.data.role === "coach") {
-        navigate("/coach/dashboard");
+        navigate("/coach/drafts/live"); // Redirect to coach-specific route
       } else if (mockResponse.data.role === "admin") {
-        navigate("/admin/team");
+        navigate("/admin/team"); // Redirect to admin-specific route
       } else {
         setError("Invalid credentials");
       }

@@ -3,8 +3,8 @@ import Header from "./Header";
 
 // Replace with your actual API endpoint
 const token = localStorage.getItem("accessToken");
-const API_URL =
-  "https://app.sportsleaguedraft.com/v1/team/list-super-admin-team?admin_id=663387b275190600180883c9&page=1&status=Active";
+const adminid = localStorage.getItem("adminid");
+const API_URL = `https://app.sportsleaguedraft.com/v1/team/list-super-admin-team?admin_id=${adminid}&page=1&status=Active`;
 
 const Teams = () => {
   const [teams, setTeams] = useState([]);
