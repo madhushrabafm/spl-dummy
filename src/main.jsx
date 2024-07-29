@@ -13,6 +13,7 @@ import AddTeams from "./components/admin/AddTeams";
 import AddCoach from "./components/admin/AddCoach";
 import AddPlayers from "./components/admin/AddPlayers";
 import Login from "./pages/Login";
+import AddDrafts from "./components/admin/AddDrafts";
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
       {
         path: "drafts",
         element: <DraftList />,
+      },
+      {
+        path: "drafts/add",
+        element: <AddDrafts />,
       },
     ],
   },
