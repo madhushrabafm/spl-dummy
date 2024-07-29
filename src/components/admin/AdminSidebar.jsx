@@ -12,6 +12,14 @@ const AdminSidebar = () => {
         <ul>
           <li>
             <Link
+              to="/admin/players"
+              className=" capitalize px-8 block p-4 hover:bg-pink-700/50"
+            >
+              players
+            </Link>
+          </li>
+          <li>
+            <Link
               to="/admin/team"
               className=" capitalize px-8 block p-4 hover:bg-pink-700/50"
             >
@@ -26,14 +34,7 @@ const AdminSidebar = () => {
               coach
             </Link>
           </li>
-          <li>
-            <Link
-              to="/admin/players"
-              className=" capitalize px-8 block p-4 hover:bg-pink-700/50"
-            >
-              players
-            </Link>
-          </li>
+
           <li>
             <Link
               to="/admin/drafts"

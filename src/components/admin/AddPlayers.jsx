@@ -13,17 +13,18 @@ const AddPlayer = () => {
   const [successMessage, setSuccessMessage] = useState("");
 
   const token = localStorage.getItem("accessToken"); // Retrieve access token from localStorage
+  const adminid = localStorage.getItem("adminid"); // Retrieve adminid from localStorage
 
   useEffect(() => {
     // Fetch leagues from the API
     const fetchLeagues = async () => {
       try {
         const response = await fetch(
-          "https://app.sportsleaguedraft.com/v1/admin/list-all-organisation",
+          `https://app.sportsleaguedraft.com/v1/league/list-leagues?admin=${adminid}`,
           {
             method: "GET",
             headers: {
-              Authorization: `Bearer ${token}`, // Replace with your actual access token
+              Authorization: `Bearer ${token}`,
               "Content-Type": "application/json",
             },
           }
@@ -34,10 +35,10 @@ const AddPlayer = () => {
         }
 
         const data = await response.json();
-        // console.log(data?.data?.results, "<<<<<<<<<<<,");
+        console.log(data?.data, "<<<<<<<<<<<,");
 
-        if (data.isSuccess && Array.isArray(data.data?.results)) {
-          setLeagues(data.data?.results);
+        if (data.isSuccess && Array.isArray(data.data)) {
+          setLeagues(data.data);
         } else {
           throw new Error("Invalid data format");
         }
@@ -79,10 +80,12 @@ const AddPlayer = () => {
     }
 
     const payload = new FormData();
-    payload.append("file", formData.file);
-    payload.append("admin_id", "663387b275190600180883c9");
+    payload.append("file", formData?.file);
+    payload.append("admin_id", adminid);
     payload.append("league_id", formData.leagueId);
     payload.append("is_player_selected", "false");
+
+    console.log(formData);
 
     try {
       const response = await fetch(
@@ -125,7 +128,7 @@ const AddPlayer = () => {
         <Header
           heading="Add Player"
           linkname="Back to Player List"
-          link="/admin/player"
+          link="/admin/players"
         />
       </h1>
       <div className="overflow-x-auto bg-white shadow-md rounded-lg p-6">
@@ -151,9 +154,9 @@ const AddPlayer = () => {
                   required
                 >
                   <option value="">Select a league</option>
-                  {leagues.map((league) => (
-                    <option key={league.id} value={league.id}>
-                      {league?.full_name}
+                  {leagues?.map((league) => (
+                    <option key={league.id} value={league._id}>
+                      {league?.league_name}
                     </option>
                   ))}
                 </select>

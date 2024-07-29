@@ -17,11 +17,14 @@ const Login = () => {
       // Call the mock authentication function
       const mockResponse = await mockAuth(email, password);
 
-      console.log(mockResponse);
+      console.log(mockResponse, "/////////////");
 
       // Store the access token in localStorage
       if (mockResponse.accessToken) {
         localStorage.setItem("accessToken", mockResponse.accessToken);
+      }
+      if (mockResponse.data.id) {
+        localStorage.setItem("adminid", mockResponse.data.id);
       }
 
       if (mockResponse.data.role === "coach") {
