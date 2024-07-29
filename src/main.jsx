@@ -14,6 +14,9 @@ import AddCoach from "./components/admin/AddCoach";
 import AddPlayers from "./components/admin/AddPlayers";
 import Login from "./pages/Login";
 import AddDrafts from "./components/admin/AddDrafts";
+import LeagueList from "./components/admin/LeagueList";
+import AddLeague from "./components/admin/AddLeague";
+import Live from "./pages/Live";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +26,12 @@ const router = createBrowserRouter([
   {
     path: "/coach",
     element: <Coach />,
+    children: [
+      {
+        path: "drafts/live/:id",
+        element: <Live />,
+      },
+    ],
   },
   {
     path: "/admin",
@@ -60,6 +69,18 @@ const router = createBrowserRouter([
       {
         path: "drafts/add",
         element: <AddDrafts />,
+      },
+      {
+        path: "league",
+        element: <LeagueList />,
+      },
+      {
+        path: "league/add",
+        element: <AddLeague />,
+      },
+      {
+        path: "drafts/live/:id",
+        element: <Live />,
       },
     ],
   },

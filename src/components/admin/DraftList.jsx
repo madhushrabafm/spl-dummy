@@ -1,6 +1,7 @@
 // src/components/admin/DraftList.jsx
 import React, { useEffect, useState } from "react";
 import Header from "./Header";
+import { Link } from "react-router-dom";
 
 const DraftList = () => {
   const [drafts, setDrafts] = useState([]);
@@ -91,14 +92,15 @@ const DraftList = () => {
                   {draft.league_id.league_name}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <a
-                    href={draft.meeting_link}
+                  <Link
+                    to={`/admin/drafts/live/${draft.id || draft._id}`}
                     className="text-pink-600 hover:text-pink-900"
-                    target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {draft.meeting_link}
-                  </a>
+                    {`${window.location.host}/admin/drafts/live/${
+                      draft.id || draft._id
+                    }`}
+                  </Link>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">{draft.date}</td>
                 <td className="px-6 py-4 whitespace-nowrap">{draft.time}</td>
