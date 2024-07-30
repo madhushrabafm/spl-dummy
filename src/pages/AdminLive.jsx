@@ -51,7 +51,10 @@ const AdminLive = () => {
           <div className="wrapper">
             {liveTeam?.map((e, idx) => {
               return (
-                <div className="m-3 bg-rose-800 w-fit text-white  flex justify-between flex-col p-3 text-sm cursor-pointer rounded-lg border">
+                <div
+                  key={idx}
+                  className="m-3 bg-rose-800 w-fit text-white  flex justify-between flex-col p-3 text-sm cursor-pointer rounded-lg border"
+                >
                   {e.team_name}
                 </div>
               );
@@ -66,7 +69,10 @@ const AdminLive = () => {
         <div className="boixes flex gap-2 flex-wrap text-white">
           {allPlayers?.map((e, idx) => {
             return (
-              <div className="m-3 bg-rose-800 flex justify-between flex-col p-1 text-sm cursor-pointer rounded-lg border">
+              <div
+                key={idx}
+                className="m-3 bg-rose-800 flex justify-between flex-col p-1 text-sm cursor-pointer rounded-lg border"
+              >
                 {e.full_name}
                 <p className="bg-emerald-400 p-1 m-2 w-fit  rounded-full px-2.5">
                   {idx}
@@ -81,7 +87,10 @@ const AdminLive = () => {
         <div className="wrapper">
           {allcoaches?.map((e, idx) => {
             return (
-              <div className="m-3 bg-rose-800 w-fit text-white  flex justify-between flex-col p-3 text-sm cursor-pointer rounded-lg border">
+              <div
+                key={idx}
+                className="m-3 bg-rose-800 w-fit text-white  flex justify-between flex-col p-3 text-sm cursor-pointer rounded-lg border"
+              >
                 {e.full_name}
               </div>
             );

@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 const AdminSidebar = () => {
   const nav = useNavigate();
   return (
-    <div className="h-screen shadow-lg w-64 bg-pink-800/50 text-white flex flex-col">
+    <div className="min-h-screen h-full shadow-lg md:w-64 w-32 bg-pink-800/50 text-white flex flex-col">
       <div className="p-4 px-8 text-lg font-semibold bg-pink-900/50">
         Admin Sidebar
       </div>
