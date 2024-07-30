@@ -16,6 +16,7 @@ const Login = () => {
     try {
       const mockResponse = await mockAuth(email, password);
       console.log("?>>>>>>>>:", mockResponse.data);
+      localStorage.setItem("user_email", mockResponse.data.email);
 
       if (mockResponse.accessToken) {
         localStorage.setItem("accessToken", mockResponse.accessToken);

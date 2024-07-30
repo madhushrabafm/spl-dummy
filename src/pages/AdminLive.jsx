@@ -8,8 +8,6 @@ const AdminLive = () => {
   const socket_url = import.meta.env.VITE_REACT_APP_SOCKET_URL;
   const { id } = useParams();
 
-  //   console.log(params);
-
   useEffect(() => {
     const socket = SocketIOClient(socket_url);
 
@@ -21,9 +19,7 @@ const AdminLive = () => {
 
     socket.emit("join_draft_room", {
       draftId: id,
-      // coachId: JSON.parse(localStorage.getItem("adminid")),
     });
-    console.log(">>>>--------join_draft_room------>>>>>", socket.id);
 
     socket.on("draft_data", (data) => {
       console.log("org draft_data -----", data);
@@ -36,65 +32,61 @@ const AdminLive = () => {
     return () => {
       socket.disconnect();
     };
-  }, [socket_url]);
+  }, [socket_url, id]);
 
-  console.log(adminDraftData?.players, ".......>>>>>>>>>>>.........");
   const allPlayers = adminDraftData?.players;
-  const allcoaches = adminDraftData?.coaches;
-  const liveTeam = adminDraftData?.teams;
+  const allCoaches = adminDraftData?.coaches;
+  const liveTeams = adminDraftData?.teams;
 
   return (
     <div className="p-8">
       <div className="flex gap-5">
         <div className="teamlist">
-          <h1>teamlist</h1>
+          <h1>Team List</h1>
           <div className="wrapper">
-            {liveTeam?.map((e, idx) => {
-              return (
-                <div
-                  key={idx}
-                  className="m-3 bg-rose-800 w-fit text-white  flex justify-between flex-col p-3 text-sm cursor-pointer rounded-lg border"
-                >
-                  {e.team_name}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-        <div className="currplayer">current player</div>
-        <div className="timer">timer</div>
-      </div>
-      <div className="playerlsts">
-        <h1>players</h1>
-        <div className="boixes flex gap-2 flex-wrap text-white">
-          {allPlayers?.map((e, idx) => {
-            return (
+            {liveTeams?.map((team, idx) => (
               <div
                 key={idx}
-                className="m-3 bg-rose-800 flex justify-between flex-col p-1 text-sm cursor-pointer rounded-lg border"
+                className="m-3 bg-rose-800 w-fit text-white flex justify-between flex-col p-3 text-sm cursor-pointer rounded-lg border"
               >
-                {e.full_name}
-                <p className="bg-emerald-400 p-1 m-2 w-fit  rounded-full px-2.5">
-                  {idx}
-                </p>
+                {team.team_name}
               </div>
-            );
-          })}
+            ))}
+          </div>
+        </div>
+        <div className="currplayer">Current Player</div>
+        <div className="timer">Timer</div>
+      </div>
+      <div className="playerlsts">
+        <h1>Players</h1>
+        <div className="boixes flex gap-2 flex-wrap text-white">
+          {allPlayers?.map((player, idx) => (
+            <div
+              key={idx}
+              className={`m-3 bg-rose-800 flex justify-between flex-col p-1 text-sm   rounded-lg border ${
+                player.is_player_selected ? "disabled" : ""
+              }`}
+              style={{ opacity: player.is_player_selected ? 0.5 : 1 }}
+            >
+              {player.full_name}
+              <p className="bg-emerald-400 p-1 m-2 w-fit rounded-full px-2.5">
+                {idx}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
       <div className="coaches">
-        <h1>coaches</h1>
+        <h1>Coaches</h1>
         <div className="wrapper">
-          {allcoaches?.map((e, idx) => {
-            return (
-              <div
-                key={idx}
-                className="m-3 bg-rose-800 w-fit text-white  flex justify-between flex-col p-3 text-sm cursor-pointer rounded-lg border"
-              >
-                {e.full_name}
-              </div>
-            );
-          })}
+          {allCoaches?.map((coach, idx) => (
+            <div
+              key={idx}
+              className="m-3 bg-rose-800 w-fit text-white flex justify-between flex-col p-3 text-sm cursor-pointer rounded-lg border"
+            >
+              {coach.full_name}
+            </div>
+          ))}
         </div>
       </div>
     </div>
