@@ -1,14 +1,15 @@
 // src/components/AdminSidebar.jsx
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const AdminSidebar = () => {
+  const nav = useNavigate();
   return (
     <div className="h-screen shadow-lg w-64 bg-pink-800/50 text-white flex flex-col">
       <div className="p-4 px-8 text-lg font-semibold bg-pink-900/50">
         Admin Sidebar
       </div>
-      <nav className="flex-1 mt-4 ">
+      <nav className="flex-1 flex flex-col justify-between  mt-4 ">
         <ul className=" divide-y divide-rose-700">
           <li>
             <Link
@@ -52,6 +53,12 @@ const AdminSidebar = () => {
             </Link>
           </li>
         </ul>
+        <button
+          onClick={() => nav("/")}
+          className="logout mb-12 bg-rose-800 text-white p-2 capitalize mx-auto rounded-md px-7 w-fit"
+        >
+          logout
+        </button>
       </nav>
     </div>
   );

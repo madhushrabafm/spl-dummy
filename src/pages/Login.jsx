@@ -30,7 +30,7 @@ const Login = () => {
       if (mockResponse.data.role === "coach") {
         navigate("/coach"); // Redirect to coach-specific route
       } else if (mockResponse.data.role === "admin") {
-        navigate("/admin/team"); // Redirect to admin-specific route
+        navigate("/admin/league"); // Redirect to admin-specific route
       } else {
         setError("Invalid credentials");
       }
