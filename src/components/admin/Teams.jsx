@@ -52,7 +52,7 @@ const Teams = () => {
       </h1>
       <div className="overflow-x-auto shadow-md rounded-lg m-4">
         <table className="w-full">
-          <thead className="bg-rose-800/90 text-white">
+          <thead className="bg-rose-800/90  text-white">
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
                 Team Name
@@ -77,7 +77,7 @@ const Teams = () => {
               </th>
             </tr>
           </thead>
-          <tbody className="bg-white">
+          <tbody className="bg-white  divide-y divide-gray-200">
             {teams.map((team) => (
               <tr key={team.id}>
                 <td className="px-6 py-4 whitespace-nowrap">

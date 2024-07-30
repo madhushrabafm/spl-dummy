@@ -44,10 +44,16 @@ const LeagueTable = () => {
     fetchLeagues();
   }, [token]);
 
-  console.log(leagues);
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   return (
-    <div className="w-full ">
+    <div className="w-full">
       <h1 className="text-2xl font-bold mb-4">
         <Header
           heading={"League List"}
@@ -55,59 +61,65 @@ const LeagueTable = () => {
           link="/admin/league/add"
         />
       </h1>
-      <div className="p-12">
-        {loading ? (
-          <p>Loading...</p>
-        ) : error ? (
-          <p className="text-red-500">{error}</p>
-        ) : (
-          <table className="w-full border-collapse border p-12 border-gray-300">
-            <thead>
-              <tr>
-                <th className="border border-gray-300 px-4 py-2">
-                  League Name
-                </th>
-                <th className="border border-gray-300 px-4 py-2">Sport Type</th>
-                <th className="border border-gray-300 px-4 py-2">Teams</th>
-                <th className="border border-gray-300 px-4 py-2">Year</th>
-                <th className="border border-gray-300 px-4 py-2">Season</th>
-                <th className="border border-gray-300 px-4 py-2">Age Group</th>
-                <th className="border border-gray-300 px-4 py-2">Status</th>
-                <th className="border border-gray-300 px-4 py-2">Completed</th>
+      <div className="overflow-x-auto bg-white shadow-md rounded-lg m-4">
+        <table className="min-w-full divide-y divide-gray-200">
+          <thead className="bg-purple-300 text-white">
+            <tr>
+              <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+                League Name
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+                Sport Type
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+                Teams
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+                Year
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+                Season
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+                Age Group
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+                Status
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+                Completed
+              </th>
+            </tr>
+          </thead>
+          <tbody className="bg-white divide-y divide-gray-200">
+            {leagues.map((league) => (
+              <tr key={league._id}>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  {league.league_name}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  {league.sport_type_id.sport_name}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  {league.teamCount}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  {league.league_year}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  {league.league_season}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  {league.league_age}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">{league.status}</td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  {league.completed ? "Yes" : "No"}
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {leagues.map((league) => (
-                <tr key={league._id}>
-                  <td className="border border-gray-300 px-4 py-2">
-                    {league.league_name}
-                  </td>
-                  <td className="border border-gray-300 px-4 py-2">
-                    {league.sport_type_id.sport_name}
-                  </td>
-                  <td className="border border-gray-300 px-4 py-2">
-                    {league.teamCount}
-                  </td>
-                  <td className="border border-gray-300 px-4 py-2">
-                    {league.league_year}
-                  </td>
-                  <td className="border border-gray-300 px-4 py-2">
-                    {league.league_season}
-                  </td>
-                  <td className="border border-gray-300 px-4 py-2">
-                    {league.league_age}
-                  </td>
-                  <td className="border border-gray-300 px-4 py-2">
-                    {league.status}
-                  </td>
-                  <td className="border border-gray-300 px-4 py-2">
-                    {league.completed ? "Yes" : "No"}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 const AdminSidebar = () => {
   return (
     <div className="h-screen shadow-lg w-64 bg-pink-800/50 text-white flex flex-col">
-      <div className="p-4 text-lg font-semibold bg-pink-900/50">
+      <div className="p-4 px-8 text-lg font-semibold bg-pink-900/50">
         Admin Sidebar
       </div>
-      <nav className="flex-1 mt-4">
-        <ul>
+      <nav className="flex-1 mt-4 ">
+        <ul className=" divide-y divide-rose-700">
           <li>
             <Link
               to="/admin/league"
